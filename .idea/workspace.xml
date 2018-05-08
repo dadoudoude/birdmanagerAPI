@@ -33,9 +33,7 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../doudou" afterPath="$PROJECT_DIR$/../doudou" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../bird/.idea/workspace.xml" afterPath="$PROJECT_DIR$/../bird/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../bird/birdtest/baseSet.py" afterPath="$PROJECT_DIR$/../bird/birdtest/baseSet.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/reprot/htmlreport.py" afterPath="$PROJECT_DIR$/reprot/htmlreport.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/reprot/send_email.py" afterPath="$PROJECT_DIR$/reprot/send_email.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../camel/.idea/workspace.xml" afterPath="$PROJECT_DIR$/../camel/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../cameluser/.idea/workspace.xml" afterPath="$PROJECT_DIR$/../cameluser/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../cattleuser/.idea/vcs.xml" afterPath="$PROJECT_DIR$/../cattleuser/.idea/vcs.xml" />
@@ -71,21 +69,21 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
-      <file leaf-file-name="htmlreport.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="htmlreport.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/reprot/htmlreport.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="24" column="30" selection-start-line="24" selection-start-column="30" selection-end-line="24" selection-end-column="30" />
+            <state vertical-scroll-proportion="0.3968254">
+              <caret line="16" column="30" selection-start-line="16" selection-start-column="30" selection-end-line="16" selection-end-column="30" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="send_email.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="send_email.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/reprot/send_email.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.34013605">
-              <caret line="24" column="29" selection-start-line="24" selection-start-column="29" selection-end-line="24" selection-end-column="29" />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="27" column="10" selection-start-line="27" selection-start-column="10" selection-end-line="27" selection-end-column="10" />
               <folding>
                 <element signature="e#0#14#0" expanded="true" />
               </folding>
@@ -556,21 +554,21 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/reprot/htmlreport.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="24" column="30" selection-start-line="24" selection-start-column="30" selection-end-line="24" selection-end-column="30" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/reprot/send_email.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.34013605">
-          <caret line="24" column="29" selection-start-line="24" selection-start-column="29" selection-end-line="24" selection-end-column="29" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="27" column="10" selection-start-line="27" selection-start-column="10" selection-end-line="27" selection-end-column="10" />
           <folding>
             <element signature="e#0#14#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/reprot/htmlreport.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.3968254">
+          <caret line="16" column="30" selection-start-line="16" selection-start-column="30" selection-end-line="16" selection-end-column="30" />
+          <folding />
         </state>
       </provider>
     </entry>
