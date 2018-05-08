@@ -3,10 +3,10 @@ import unittest
 import HTMLTestRunner
 import sys
 sys.path.append('/var/lib/jenkins/workspace/birduserAPItest/report')
-from send_email import main2
+from report.send_email import main2
 def all_case():
-    #case_dir = "C:\\Users\\liugc\\PycharmProjects\\birdmanagerAPItest\\interface"
-    case_dir = "/var/lib/jenkins/workspace/birdmanagerAPItest"
+    #case_dir = "C:\\Users\\liugc\\PycharmProjects\\birdmanagerAPI\\interface"
+    case_dir = "/var/lib/jenkins/workspace/birdmanagerAPI"
     testcase = unittest.TestSuite()
     discover = unittest.defaultTestLoader.discover(case_dir,pattern="test*.py",top_level_dir=None)
     # discover方法筛选出来的用例，循环添加到测试套件中
@@ -20,11 +20,11 @@ def all_case():
     return testcase
 if __name__ == "__main__":
 
-    #report_path="C:\\Users\\liugc\\PycharmProjects\\birdmanagerAPItest\\report\\result.html"
-    report_path="/var/lib/jenkins/workspace/birdmanagerAPItest/report/result.html"
+    #report_path="C:\\Users\\liugc\\PycharmProjects\\birdmanagerAPI\\report\\result.html"
+    report_path="/var/lib/jenkins/workspace/birdmanagerAPI/report/result.html"
     fp= open(report_path,"wb")
     runner = HTMLTestRunner.HTMLTestRunner(stream=fp,
-                                           title=u'骆驼userAPI测试报告',
+                                           title=u'鸟类追踪后台管理API测试报告',
                                            description=u'用例执行结果')
     #runner = unittest.TextTestRunner()
     # run所有用例
