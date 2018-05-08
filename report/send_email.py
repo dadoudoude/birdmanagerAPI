@@ -25,7 +25,7 @@ def main2():
     TO = ['274717413@qq.com']
     config = {
         "from": "773767639@qq.com",
-        "from_name": '骆驼userAPI自动化测试报告:',
+        "from_name": '鸟类追踪后台管理API测试报告:',
         "to": TO,
         "serverip": "smtp.qq.com",
         "serverport": "465",
@@ -33,8 +33,8 @@ def main2():
         "password": "nukzwhfhhifrbdbg"  # QQ邮箱的SMTP授权码
     }
 
-    title = "骆驼userAPI自动化测试报告"
-    f = open("/var/lib/jenkins/workspace/birdmanagerAPI/report/result.html", 'rb')
+    title = "鸟类追踪后台管理API测试报告"
+    f = open("/var/lib/jenkins/workspace/birdmanagerAPItest/report/result.html", 'rb')
     #f = open("C:\\Users\\liugc\\PycharmProjects\\birdmanagerAPI\\report\\result.html", 'rb')
     mail_body = f.read()
     f.close()
