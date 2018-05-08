@@ -18,8 +18,8 @@ class Test(unittest.TestCase):
 
     #设备
     def test01(self):
-        host='http://bird.test.druidtech.net'
-        hosts='https://bird.test.druidtech.net'
+        host='http://bird.test.druidtech.net/manager'
+        hosts='https://bird.test.druidtech.net/manager'
         mark1='2003'
         mark2='2106'
 
@@ -29,7 +29,7 @@ class Test(unittest.TestCase):
         #login
         namepassword={"password":"7717f13af87abe0c149196267c7f828395be8c60423e4a059b25db912605a57f","username":"root"}
         npdata=json.dumps(namepassword)
-        login=requests.post('https://bird.test.druidtech.net'+'/api/v2/login',npdata,verify=False)
+        login=requests.post('https://bird.test.druidtech.net/manager'+'/api/v2/login',npdata,verify=False)
         #print("status",login.status_code)
         #print("login.text",login.text)
         #print("loginheader",login.headers['X-Druid-Authentication'])
@@ -93,11 +93,11 @@ class Test(unittest.TestCase):
 
 
         #Search Device By mark
-        getdevicebymark=requests.get(hosts+'/api/v2/device/search/'+mark1,headers=header,verify=False)
+        getdevicebymark=requests.get(hosts+'/api/v2/device/search/mark/'+mark1,headers=header,verify=False)
         deviceid=eval(getdevicebymark.text)[0]['id']
         print("deviceid",mark1,deviceid)
         #Search Device By mark
-        getdevicebymark1=requests.get(hosts+'/api/v2/device/search/'+mark2,headers=header,verify=False)
+        getdevicebymark1=requests.get(hosts+'/api/v2/device/search/mark/'+mark2,headers=header,verify=False)
         deviceidbeh=eval(getdevicebymark1.text)[0]['id']
         print("deviceidbeh",mark2,deviceidbeh)
 
