@@ -2,7 +2,7 @@
 import unittest
 import HTMLTestRunner
 import sys
-sys.path.append('/var/lib/jenkins/workspace/birduserAPItest/report')
+sys.path.append('/var/lib/jenkins/workspace/birduserAPItest/')
 from report.send_email import main2
 def all_case():
     #case_dir = "C:\\Users\\liugc\\PycharmProjects\\birdmanagerAPI\\interface"
