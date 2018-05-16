@@ -94,7 +94,8 @@ class Test(unittest.TestCase):
         print("getfirmware",getfirmware.text)
 
         #上传.bin文件
-        readbin=open('C:\\Users\\liugc\\PycharmProjects\\birdmanagerAPI\\interface\\v2.0.bin','rb').read()
+        #readbin=open('C:\\Users\\liugc\\PycharmProjects\\birdmanagerAPI\\interface\\v2.0.bin','rb').read()
+        readbin=open("/var/lib/jenkins/workspace/birdmanagerAPItest/interface/v2.0.bin","rb").read()
         updatebin=requests.post(hosts+'/manager/api/v2/firmware/name/'+firmwarename,readbin,headers=header,verify=False)
         self.assertEquals(201,updatebin.status_code)
 
@@ -127,7 +128,8 @@ class Test(unittest.TestCase):
 
         #数据导入
         #SIM卡数据导入
-        simupdate=open("simtest.xlsx","rb")
+        #simupdate=open("simtest.xlsx","rb")
+        simupdate=open("/var/lib/jenkins/workspace/birdmanagerAPItest/interface/simtest.xlsx","rb")
         exportsimdata=simupdate.read()
         exportsim=requests.post(hosts+'/manager/api/v2/sim/excel',exportsimdata,headers=header,verify=False)
         self.assertEquals(201,exportsim.status_code)
