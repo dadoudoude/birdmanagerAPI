@@ -91,6 +91,15 @@ class Test(unittest.TestCase):
         self.assertEquals(True,bool2)
 
 
+        #设备翻页
+        #下一页
+        getdevice3=requests.get(hosts+'/api/v2/device/page/'+eval(getdevices2.text)[-1]['updated_at'],headers=headerdn,verify=False)
+        self.assertEquals(200,getdevice3.status_code)
+        #上一页
+        #getdevice31=requests.get(hosts+'/api/v2/device/page/'+eval(getdevice3.text)[0]['updated_at'],headers=headerup,verify=False)
+        #self.assertEquals(200,getdevice31.status_code)
+
+
 
         #Search Device By mark
         getdevicebymark=requests.get(hosts+'/api/v2/device/search/mark/'+mark1,headers=header,verify=False)
@@ -110,7 +119,7 @@ class Test(unittest.TestCase):
             "Host": "bird.test.druidtech.net",
             "User-Agent": "Apache-HttpClient/4.5.5 (Java/1.8.0_144)",
             "x-result-sort":"_id",
-            "x-result-limit":"20"
+            "x-result-limit":"50"
              }
         headeriddn={"Connection": "keep-alive",
             "conten-type": "application/json; text/plain; charset=utf-8; multipart/form-data",
@@ -119,7 +128,7 @@ class Test(unittest.TestCase):
             "x-druid-authentication":login.headers['X-Druid-Authentication'],
             "Host": "bird.test.druidtech.net",
             "User-Agent": "Apache-HttpClient/4.5.5 (Java/1.8.0_144)",
-            "x-result-limit":"20",
+            "x-result-limit":"50",
             "x-result-sort":"-_id"
              }
         headertimestampdn={"Connection": "keep-alive",
@@ -130,7 +139,7 @@ class Test(unittest.TestCase):
             "Host": "bird.test.druidtech.net",
             "User-Agent": "Apache-HttpClient/4.5.5 (Java/1.8.0_144)",
             "x-result-sort":"timestamp",
-            "x-result-limit":"20"
+            "x-result-limit":"50"
              }
         headertimestampup={"Connection": "keep-alive",
             "conten-type": "application/json; text/plain; charset=utf-8; multipart/form-data",
@@ -140,7 +149,7 @@ class Test(unittest.TestCase):
             "Host": "bird.test.druidtech.net",
             "User-Agent": "Apache-HttpClient/4.5.5 (Java/1.8.0_144)",
             "x-result-sort":"-timestamp",
-            "x-result-limit":"20"
+            "x-result-limit":"50"
              }
 
 
@@ -159,7 +168,7 @@ class Test(unittest.TestCase):
         self.assertEquals(True,bool3)
 
 
-        #_id降序排列所有GPS数据
+        #id降序排列所有GPS数据
         getgpsiddn=requests.get(hosts+'/api/v2/gps/device/'+deviceid+'/page/',headers=headeriddn,verify=False)
         print("gpsdn",getgpsiddn.status_code)
         print("gpsdn",getgpsiddn.text)
@@ -180,7 +189,7 @@ class Test(unittest.TestCase):
         bool5=eval(getgpstsup.text)[0]['updated_at']>eval(getgpstsup.text)[-1]['updated_at']
         self.assertEquals(True,bool5)
 
-        #timestampdn
+        #timestampdn 下一页
         getgpstsdn=requests.get(hosts+'/api/v2/gps/device/'+deviceid+'/page/',headers=headertimestampdn,verify=False)
         print("gpstsdn",getgpstsdn.status_code)
         print("gpstsdn",getgpstsdn.text)
@@ -188,6 +197,8 @@ class Test(unittest.TestCase):
         print(eval(getgpstsdn.text)[-1]['updated_at'])
         bool6=eval(getgpstsdn.text)[0]['updated_at']<eval(getgpstsdn.text)[-1]['updated_at']
         self.assertEquals(True,bool6)
+        #下一页
+
 
 
 
