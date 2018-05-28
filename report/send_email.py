@@ -34,8 +34,8 @@ def main2():
     }
 
     title = "鸟类追踪后台管理API测试报告"
-    f = open("/var/lib/jenkins/workspace/birdmanagerAPItest/report/result.html", 'rb')
-    #f = open("C:\\Users\\liugc\\PycharmProjects\\birdmanagerAPI\\report\\result.html", 'rb')
+    #f = open("/var/lib/jenkins/workspace/birdmanagerAPItest/report/result.html", 'rb')
+    f = open("C:\\Users\\liugc\\PycharmProjects\\birdmanagerAPI\\report\\result.html", 'rb')
     mail_body = f.read()
     f.close()
     sendEmail(mail_body, title, config['from_name'], config['from'], config['to'], config['serverport'], config['serverip'],

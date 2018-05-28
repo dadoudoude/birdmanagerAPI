@@ -71,9 +71,10 @@ class Test(unittest.TestCase):
         print(getdevices.text)
 
         #获取设备数量
-        getdevicecount=requests.get(hosts+'/manager/api/v2/device/count',headers=header,verify=False)
-        self.assertEquals(200,getdevicecount.status_code)
-        print("设备总数为",getdevicecount.text,"个")
+        #getdevicestext1=requests.get(hosts+'/api/v2/device/',headers=header,verify=False)
+        #devicescount1=getdevicestext1.headers['X-Result-Count']
+        #print("当前账户拥有设备数量：",devicescount1,"个")
+        #self.assertEquals(200,getdevicestext1.status_code)
 
         #获取用户信息
         getuser=requests.get(hosts+'/manager/api/v2/user/',headers=header,verify=False)
@@ -165,7 +166,7 @@ class Test(unittest.TestCase):
         #分配设备
 
         #获取空闲设备第一个设备的id
-        getidle=requests.get(hosts+'/manager/api/v2/device/idle/page/',headers=headerupdatedn,verify=False)
+        getidle=requests.get(hosts+'/manager/api/v2/device/idle',headers=headerupdatedn,verify=False)
         self.assertEquals(200,getidle.status_code)
         deletedeviceid=eval(getidle.text)[0]['id']
         print("第一个空闲设备的id为：",deletedeviceid)

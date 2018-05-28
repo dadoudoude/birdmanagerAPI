@@ -5,7 +5,7 @@ import sys
 sys.path.append('/var/lib/jenkins/workspace/birdmanagerAPItest/')
 from report.send_email import main2
 def all_case():
-    #case_dir = "C:\\Users\\liugc\\PycharmProjects\\birdmanagerAPItest\\interface"
+    #case_dir = "C:\\Users\\liugc\\PycharmProjects\\birdmanagerAPI\\interface"
     case_dir = "/var/lib/jenkins/workspace/birdmanagerAPItest/interface"
     testcase = unittest.TestSuite()
     discover = unittest.defaultTestLoader.discover(case_dir,pattern="test*.py",top_level_dir=None)

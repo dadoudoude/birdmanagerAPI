@@ -69,12 +69,13 @@ class Test(unittest.TestCase):
 
 
         #get devices count获取当前用户设备数量
-        getdevicescount=requests.get(hosts+'/api/v2/device/count',headers=header,verify=False)
-        print("当前账户拥有设备数量：",getdevicescount.text,"个")
-        self.assertEquals(200,getdevicescount.status_code)
+        getdevicestext=requests.get(hosts+'/api/v2/device/',headers=header,verify=False)
+        devicescount=getdevicestext.headers['X-Result-Count']
+        print("当前账户拥有设备数量：",devicescount,"个")
+        self.assertEquals(200,getdevicestext.status_code)
 
         #根据降序对设备排序
-        getdevices1=requests.get(hosts+'/api/v2/device/page/',headers=headerup,verify=False)
+        getdevices1=requests.get(hosts+'/api/v2/device/',headers=headerup,verify=False)
         print(getdevices1.text)
         print(eval(getdevices1.text)[0]['updated_at'])
         print(eval(getdevices1.text)[-1]['updated_at'])
@@ -83,7 +84,7 @@ class Test(unittest.TestCase):
         self.assertEquals(True,bool1)
 
         #根据升序对设备排序
-        getdevices2=requests.get(hosts+'/api/v2/device/page/',headers=headerdn,verify=False)
+        getdevices2=requests.get(hosts+'/api/v2/device/',headers=headerdn,verify=False)
         print(getdevices2.text)
         print(eval(getdevices2.text)[0]['updated_at'])
         print(eval(getdevices2.text)[-1]['updated_at'])
@@ -92,8 +93,20 @@ class Test(unittest.TestCase):
 
 
         #设备翻页
+
         #下一页
-        getdevice3=requests.get(hosts+'/api/v2/device/page/'+eval(getdevices2.text)[-1]['updated_at'],headers=headerdn,verify=False)
+        headerdn2={"Connection": "keep-alive",
+            "conten-type": "application/json; text/plain; charset=utf-8; multipart/form-data",
+            "content-disposition": "form-data; name='imgType'",
+            "Accept-Encoding": "gzip, deflate, br",
+            "x-druid-authentication":login.headers['X-Druid-Authentication'],
+            "Host": "bird.test.druidtech.net",
+            "User-Agent": "Apache-HttpClient/4.5.5 (Java/1.8.0_144)",
+            "x-result-sort":"-updated_at",
+             "x-result-offset":"100",
+            "x-result-limit":"50"
+             }
+        getdevice3=requests.get(hosts+'/api/v2/device/',headers=headerdn2,verify=False)
         self.assertEquals(200,getdevice3.status_code)
         #上一页
         #getdevice31=requests.get(hosts+'/api/v2/device/page/'+eval(getdevice3.text)[0]['updated_at'],headers=headerup,verify=False)
@@ -294,10 +307,10 @@ class Test(unittest.TestCase):
         self.assertEquals(True,bool14)
 
         #device根据时间戳筛选设备
-        timeparam1=eval(getdevices2.text)[0]['updated_at']
-        getdevwithparam=requests.get(hosts+'/api/v2/device/page/'+timeparam1,headers=header,verify=False)
-        self.assertEquals(200,getdevwithparam.status_code)
-        self.assertIn("device_type",getdevwithparam.text)
+        # timeparam1=eval(getdevices2.text)[0]['updated_at']
+        #getdevwithparam=requests.get(hosts+'/api/v2/device/page/'+timeparam1,headers=header,verify=False)
+        #self.assertEquals(200,getdevwithparam.status_code)
+        #self.assertIn("device_type",getdevwithparam.text)
 
         #gps根据时间戳筛选设备
         getdevwithparam2=requests.get(hosts+'/api/v2/gps/device/'+deviceid+'/page/'+gpsparam,headers=headertimestampdn,verify=False)

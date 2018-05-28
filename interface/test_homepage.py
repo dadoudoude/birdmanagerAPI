@@ -128,7 +128,7 @@ class Test(unittest.TestCase):
 
         #数据导入
         #SIM卡数据导入
-        #simupdate=open("simtest.xlsx","rb")
+        #simupdate=open("C:\\Users\\liugc\\PycharmProjects\\birdmanagerAPI\\interface\\simtest.xlsx","rb")
         simupdate=open("/var/lib/jenkins/workspace/birdmanagerAPItest/interface/simtest.xlsx","rb")
         exportsimdata=simupdate.read()
         exportsim=requests.post(hosts+'/manager/api/v2/sim/excel',exportsimdata,headers=header,verify=False)
@@ -182,7 +182,7 @@ class Test(unittest.TestCase):
 
         #回收设备
         #获取空闲设备第一个设备的id
-        getidle=requests.get(hosts+'/manager/api/v2/device/idle/page/',headers=headerupdatedn,verify=False)
+        getidle=requests.get(hosts+'/manager/api/v2/device/idle',headers=headerupdatedn,verify=False)
         self.assertEquals(200,getidle.status_code)
         deletedeviceid=eval(getidle.text)[0]['id']
         print("第一个空闲设备的id为：",deletedeviceid)
